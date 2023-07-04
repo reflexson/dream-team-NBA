@@ -15,7 +15,7 @@ const player = document.getElementsByClassName('player')
 const teamList = document.getElementById('teamList')
 
 // Player select button
-const selectPlayer = document.getElementById('playerSelect')
+var selectPlayer = document.getElementById('playerSelect')
 
 // constants for the receiving locations of each player's data
 const careerPoints = document.getElementById('careerPoints')
@@ -46,7 +46,7 @@ function getPlayerById(data){
     return data
 }
 
-const url = 'https://nba-player-individual-stats.p.rapidapi.com/players/%7Bid%7D';
+var url = 'https://nba-player-individual-stats.p.rapidapi.com/players/%7Bid%7D';
 const options = {
 	method: 'GET',
 	headers: {
@@ -61,6 +61,7 @@ try {
 	console.log(result);
 } catch (error) {
 	console.error(error);
+
 
 // put the data for the clicked on player in each data point section
 function showPlayerData(data) {
@@ -78,16 +79,20 @@ function showPlayerData(data) {
     jerseyNumber.insertAdjacentText("afterend", data.jerseyNumber);
     position.insertAdjacentText("afterend", data.position);
 
-    for (player == playerIds) {
-        // this needs to be the player's ID being used for the API fetch.
-    };
 }
 
 
 // click event listener to each player that will run the getPlayerById function
 // That same click needs to run the showPlayerData function
 // player.addEventListener('click', getPlayerById);
-player.addEventListener('click', showPlayerData);
+for (i of players) {
+    i.addEventListener('click',  getPlayerById()) {
+playersContainer.classList.add("hide");
+console.log(event.target.id);
+singlePlayerContainer.classList.remove("hide");
+
+})}
+
 
 // Create the list item from a click on the player button, append child list item to the id "teamList"
 function addPlayerToTeam(data) {
@@ -98,6 +103,25 @@ function addPlayerToTeam(data) {
 }
 
 playerSelect.addEventListener('click', addPlayerToTeam);
+
+const players = document.querySelectorAll(".player");
+const playersContainer = document.querySelector(".allPlayersContainer");
+const backButton = document.getElementById('back');
+const singlePlayerContainer = document.getElementById("singlePlayerContainer")
+
+
+for (i of players) {
+    i.addEventListener('click', function() {
+playersContainer.classList.add("hide");
+console.log(event.target.id);
+singlePlayerContainer.classList.remove("hide");
+
+})}
+
+backButton.addEventListener('click', function(){
+    singlePlayerContainer.classList.add("hide");
+    playersContainer.classList.remove("hide");
+})
 
 
 
@@ -114,6 +138,7 @@ const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 
 
 // The code below sets the consumer key and consumer secret from your environment variables
