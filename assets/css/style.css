@@ -112,10 +112,11 @@ button{
   font-family: 'Caprasimo', cursive;
   border-radius: 10px;
   font-size: 1.6vw;
+  border: none;
   width: 100%;
   padding-left: 8%;
   margin-top: 5px;
-  box-shadow:2px 3px 3px #a8a7a7 ;
+  box-shadow:2px 3px 3px #000000 ;
   align-items: center;
   display: flex;
   transition: .2s;
@@ -245,5 +246,5 @@ margin-top: 10px;
 
 
   .hide{
-    display: none;
+    display: none !important;
     }
