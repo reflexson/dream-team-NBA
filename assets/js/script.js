@@ -79,8 +79,8 @@ function showPlayerData(data) {
     position.insertAdjacentText("afterend", data.position);
 
     for (player == playerIds) {
-
-    }
+        // this needs to be the player's ID being used for the API fetch.
+    };
 }
 
 
