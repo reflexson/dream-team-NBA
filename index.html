@@ -9,52 +9,106 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <title>Dream Team NBA</title>
+    <title>Choose Your Dream Team</title>
   </head>
 
-  <body class="container-full">
+  <body>
     <header >
-      <h1 class="align-center">Dream Team NBA</h1>
+      <h1 class="align-center">Choose Your Dream Team</h1>
     </header>
-    <main class="container-full">
-      <div class=" statsContainer">
-         <div id="teamLeBron">
-          <h2>Team LeBron</h2>
-            <ul>
+    <main>
+      <div class="teamContainer">
+          <ul class="content" id="teamList">
+            <h2>Your Team</h2>
+            <li>Harvey Dribbleguy</li>
+            <li>Lucious Dunkmaster</li>
+            <li>Werner Von Blockshot</li>
+            <li>some guy</li>
+            <li>some guy</li>
+            <p>Tweet Your Team! <span id="twitter"></span></p>
+          </ul>
+         
+      </div> 
+      <div class = "allPlayersContainer">
+         <div id="listLeft">
+            <ul class="playersLists">
+              <button id="264"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/264.webp" alt="">  Giannis Antetokounmpo</button>
+              <button id="226" class="player"><img class="buttonImage" src="./assets/imgs/Headshots/226.webp" alt="">  LeBron James </button>
+              <button id="76" class="player"><img class="buttonImage" src="./assets/imgs/Headshots/76.webp" alt="">  Lauri Markkanen</button>
+              <button id="105"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/105.webp" alt="">  Luka Doncic</button>
+              <button id="470"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/470.webp" alt="">  Donovan Mitchell</button>
+              <button id="380"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/380.webp" alt="">  Joel Embiid</button>
+              <button id="243"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/243.webp" alt="">  Ja Morant</button>
+              <button id="45"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/45.webp" alt="">  Kyrie Irving</button>
+              <button id="28"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/28.webp" alt="">  Jayson Tatum</button>
+              <button id="128"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/128.webp" alt="">  Nikola Jokic</button>
             </ul>
          </div>
-         <div>
-          <img class="allStar" src="./assets/imgs/Logos/_nba_all-star_game_logo.png" alt="">
-       </div>
-         <div id="teamGiannis">
-          <h2>Team Giannis</h2>
-            <ul>
+         <div id="centerContainer">
+          <h3>Click player to see stats and add them to your team </h3>
+           <div id="listCenter">
+             <ul class="playersList">
+              <button id="18"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/18.webp" alt="">  Jaylen Brown</button>
+              <button id="332"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/332.webp" alt="">Shai Gilgeous-Alexander</button>
+              <button id="152"class="player"> <img class="buttonImage" src="./assets/imgs/Headshots/152.webp" alt="">  Stephen Curry</button>
+              <button id="310"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/310.webp" alt="">  Zion Williamson</button>
+              <button id="250"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/250.webp" alt="">  Bam Adebayo</button>
+              <button id="324"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/324.webp" alt="">  Julius Randle</button>
+              <button id="40"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/40.webp" alt="">  Kevin Durant</button>
+             </ul>
+            </div>
+         </div>
+         <div id="listRight">
+            <ul class="playersLists">
+              <button id="283"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/283.webp" alt="">  Anthony Edwards</button>
+              <button id="428"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/428.webp" alt="">  DeMar DeRozan</button>
+              <button id="412"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/412.webp" alt="">  De’Aaron Fox</button>
+              <button id="270"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/270.webp" alt="">  Jrue Holiday</button>
+              <button id="204"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/204.webp" alt="">  Paul George</button>
+              <button id="403"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/403.webp" alt="">  Damian Lillard</button>
+              <button id="414"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/414.webp" alt="">  Tyrese Haliburton</button>
+              <button id="194"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/194.webp" alt="">  Domantas Sabonis</button>
+              <button id="238"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/238.webp" alt="">  Jaren Jackson Jr.</button>
+              <button id="454"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/454.webp" alt="">  Pascal Siakam</button>
             </ul>
          </div>
       </div>
-      <!-- put new container here -->
-    </div>
-    <div class="listsContainer">
-      <div class="lists">
-        <ol class="content" id="worth">
-          <h2>Team Worth It</h2>
-          <li>Harvey Dribbleguy</li>
-          <li>Lucious Dunkmaster</li>
-          <li>Werner Von Blockshot</li>
-        </ol>
-      </div>
-      <div class="lists" id="trash">
-        <ol class="content">
-          <h2>Team Trash</h2>
-          <li>Mike Turnover</li>
-          <li>Rupert Bricklayer</li>
-          <li>Herbert Airball</li>
-        </ol>
-      </div>
-      <!-- make new container for Individual stat screen -->
-    </div> 
-    
+      <div id="singlePlayerContainer" class="hide">
+        <h4 id="playerName">Steph Curry</h4>
+        <div id="indStatsContainer">
+            <div id="indPlayerHS">
+              <img id="indHS"src="./assets/imgs/Headshots/152.webp" alt="">
+            </div>
+            <div id="indStats">
+              <div id="statsLeft">
+              <ul>
+                <li>Career Ponts: <span id="careerPoints"></span></li>
+                <li>Carrer Assists:<span id="careerAssists"></span></li>
+                <li>Career Rebounds:<span id="careerRebounds"></span></li>
+                <li>Team:<span id="team"></span></li>
+              </ul>
+              <button id="playerSelect"class="statsButton">Select Player</button>
+            </div>
+            <div id="statsRight">
+              <ul>
+                <li>Height:<span id="height"></span></li>
+                <li>Weight:<span id="weight"></span></li>
+                <li>Age:<span id="age"></span></li>
+                <li>Position:<span id="position"></span></li>
+              </ul>
+              <button id="back" class="statsButton">Back</button>
+            </div>
 
+            </div>
+         </div>
+         
+
+
+
+      </div>
+      <div id="bottomLogoContainer" > 
+        <img id="bottomLogo" src="/assets/imgs/Logos/_nba_all-star_game_logo.png" alt="">
+      </div>
     </main>
     
   

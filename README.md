@@ -39,3 +39,5 @@ Two API's used: RapidAPI and Twitter
 Fetch from RapidAPI: 
 
 -- Add to team button
+
+Twitter 
