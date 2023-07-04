@@ -65,6 +65,12 @@ try {
 
 // put the data for the clicked on player in each data point section
 function showPlayerData(data) {
+    for (i of players) {
+        i.addEventListener('click',  getPlayerById()) 
+        playersContainer.classList.add("hide");
+        console.log(event.target.id);
+        singlePlayerContainer.classList.remove("hide");
+        
     // this function needs to hide the allPlayersContainer
     // grab the data points for that particular player's API ID and apply that data to each section
     playerIds = $.map($('.player'), button => button.id);
@@ -78,20 +84,13 @@ function showPlayerData(data) {
     age.insertAdjacentText("afterend", data.age);
     jerseyNumber.insertAdjacentText("afterend", data.jerseyNumber);
     position.insertAdjacentText("afterend", data.position);
-
-}
+        
 
 
 // click event listener to each player that will run the getPlayerById function
 // That same click needs to run the showPlayerData function
 // player.addEventListener('click', getPlayerById);
-for (i of players) {
-    i.addEventListener('click',  getPlayerById()) {
-playersContainer.classList.add("hide");
-console.log(event.target.id);
-singlePlayerContainer.classList.remove("hide");
 
-})}
 
 
 // Create the list item from a click on the player button, append child list item to the id "teamList"
