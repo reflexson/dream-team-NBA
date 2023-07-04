@@ -12,6 +12,10 @@
 // NBA Player Individual Stats sample code
 // Each player button box
 const player = document.getElementsByClassName('player')
+const teamList = document.getElementById('teamList')
+
+// Player select button
+const selectPlayer = document.getElementById('playerSelect')
 
 // constants for the receiving locations of each player's data
 const careerPoints = document.getElementById('careerPoints')
@@ -34,6 +38,8 @@ weight = data.weight
 age = data.age
 jerseyNumber = data.jerseyNumber
 position = data.position
+firstName = data.firstName
+lastName = data.lastName
 
 // function event target.id to grab the id of the button and run the fetch id function
 function getPlayerById(data){
@@ -58,6 +64,10 @@ try {
 
 // put the data for the clicked on player in each data point section
 function showPlayerData(data) {
+    // this function needs to hide the allPlayersContainer
+    // grab the data points for that particular player's API ID and apply that data to each section
+    playerIds = $.map($('.player'), button => button.id);
+    getPlayerById(playerIds);
     careerPoints.insertAdjacentText("afterend", data.careerPoints);
     careerAssists.insertAdjacentText("afterend", data.careerAssists);
     careerRebounds.insertAdjacentText("afterend", data.careerRebounds);
@@ -67,13 +77,28 @@ function showPlayerData(data) {
     age.insertAdjacentText("afterend", data.age);
     jerseyNumber.insertAdjacentText("afterend", data.jerseyNumber);
     position.insertAdjacentText("afterend", data.position);
+
+    for (player == playerIds) {
+
+    }
 }
-}
+
 
 // click event listener to each player that will run the getPlayerById function
-player.addEventListener('click', getPlayerById);
+// That same click needs to run the showPlayerData function
+// player.addEventListener('click', getPlayerById);
+player.addEventListener('click', showPlayerData);
 
-// Create the list item, append child list item to the id "dtList"
+// Create the list item from a click on the player button, append child list item to the id "teamList"
+function addPlayerToTeam(data) {
+    var listItem = document.createElement("li")
+    teamList.appendChild(listItem)
+    listItem.textContent(firstName, lastName)
+
+}
+
+playerSelect.addEventListener('click', addPlayerToTeam);
+
 
 
 
@@ -83,6 +108,7 @@ const got = require('got');
 const crypto = require('crypto');
 const OAuth = require('oauth-1.0a');
 const qs = require('querystring');
+const twitterButton = getElementById('twitterButton')
 
 const readline = require('readline').createInterface({
   input: process.stdin,
@@ -94,8 +120,8 @@ const readline = require('readline').createInterface({
 // To set environment variables on macOS or Linux, run the export commands below from the terminal:
 // export CONSUMER_KEY='YOUR-KEY'
 // export CONSUMER_SECRET='YOUR-SECRET'
-const consumer_key = process.env.CONSUMER_KEY;
-const consumer_secret = process.env.CONSUMER_SECRET;
+const consumer_key = process.env.bURNeXQwb3RvSEM4Qnd1ci1MdnQ6MTpjaQ;
+const consumer_secret = process.env.nfxcbXUTOQqtamXgc9_epWdfmCGcuZ8HLWr442CdycWs94nTvU;
 
 
 // Be sure to add replace the text of the with the text you wish to Tweet.
@@ -222,5 +248,6 @@ async function getRequest({
     process.exit(-1);
   }
   process.exit();
-})();
+})()};
 
+twitterButton.addEventListener('click', getRequest)

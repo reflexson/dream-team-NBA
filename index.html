@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/superkube@latest/dist/superkube.min.css">
 
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 
     <title>Choose Your Dream Team</title>
   </head>
@@ -25,11 +25,11 @@
             <li>Werner Von Blockshot</li>
             <li>some guy</li>
             <li>some guy</li>
-            <p>Tweet Your Team! <span id="twitter"></span></p>
+            <button id = "twitterButton">Tweet Your Team!<span id="twitter"></span></button>
           </ul>
          
       </div> 
-      <div class=" allPlayersContainer">
+      <div class=" allPlayersContainer ">
          <div id="listLeft">
             <ul class="playerLists">
               <button id="264"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/264.png" alt="">  Giannis Antetokounmpo</button>
@@ -58,9 +58,8 @@
              </ul>
             </div>
          </div>
-      
          <div id="listRight">
-            <ul class="playerLists">
+            <ul class="playersList">
               <button id="283"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/283.webp" alt="">  Anthony Edwards</button>
               <button id="428"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/428.webp" alt="">  DeMar DeRozan</button>
               <button id="412"class="player"><img class="buttonImage" src="./assets/imgs/Headshots/412.webp" alt="">  De’Aaron Fox</button>
@@ -74,7 +73,38 @@
             </ul>
          </div>
       </div>
-      <!-- put new container here -->
+      <div id="singlePlayerContainer">
+        <h4 id="playerName">Steph Curry</h4>
+        <div id="indStatsContainer">
+            <div id="indPlayerHS">
+              <img id="indHS"src="./assets/imgs/Headshots/152.webp" alt="">
+            </div>
+            <div id="indStats">
+              <div id="statsLeft">
+              <ul>
+                <li>Career Ponts: <span id="careerPoints"></span></li>
+                <li>Carrer Assists:<span id="careerAssists"></span></li>
+                <li>Career Rebounds:<span id="careerRebounds"></span></li>
+                <li>Team:<span id="team"></span></li>
+              </ul>
+              <button id="playerSelect"class="statsButton">Select Player</button>
+            </div>
+            <div id="statsRight">
+              <ul>
+                <li>Height:<span id="height"></span></li>
+                <li>Weight:<span id="weight"></span></li>
+                <li>Age:<span id="age"></span></li>
+                <li>Position:<span id="position"></span></li>
+              </ul>
+              <button id="back" class="statsButton">Back</button>
+            </div>
+
+            </div>
+         </div>
+
+
+
+      </div>
       <div id="bottomLogoContainer" > 
         <img id="bottomLogo" src="/assets/imgs/Logos/_nba_all-star_game_logo.png" alt="">
       </div>
@@ -90,7 +120,7 @@
    
 
   
-    <script src="./assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
     
   </body>
 </html>
