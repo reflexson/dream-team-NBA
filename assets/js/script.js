@@ -16,7 +16,9 @@ var weight = document.getElementById("weight");
 var age = document.getElementById("age");
 var position = document.getElementById("position");
 var playerName = document.getElementById("playerName");
-// var dreamTeamUnique = [...new Set(dreamTeam)];
+var dreamTeamUnique = [...new Set(dreamTeam)];
+
+//event listener for all player buttons
 
 for (i of players) {
     i.addEventListener('click', function() {
@@ -24,6 +26,8 @@ playersContainer.classList.add("hide");
 // console.log(event.target.id);
 singlePlayerContainer.classList.remove("hide");
 headshot.src =`/assets/imgs/headshots/${event.target.id}.webp`;
+
+//api fetch for player info
 
 var url = `https://nba-player-individual-stats.p.rapidapi.com/players/${event.target.id}`;
 const options = {
@@ -36,7 +40,6 @@ const options = {
 fetch(url, options)
 .then(response => response.json()) 
     .then(data => {
-      console.log(data);
       position.textContent= data.position;
       playerName.textContent = data.firstName + " " +data.lastName;
       careerPoints.textContent = data.careerPoints;
@@ -46,62 +49,107 @@ fetch(url, options)
       height.textContent = data.height;
       weight.textContent = data.weight;
       age.textContent = data.age;
-
-
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })}
+
+
+//go back to player select screen
 
 backButton.addEventListener('click', function(){
     singlePlayerContainer.classList.add("hide");
     playersContainer.classList.remove("hide");
 })
 
-playerSelect.addEventListener("click", function(){
-    // dreamTeam = [];
-    // dreamTeamUnique = [...new Set(dreamTeam)];
-    if(dreamTeam.length < 5){
-    dreamTeam.push(playerName.textContent)
-  
+//add player to dreamTeam
 
-var listItem = document.createElement("li");
-var listSpan = document.createElement("span")
-teamList.appendChild(listItem);
-listItem.classList.add("teamLi")
-listItem.textContent = playerName.textContent;
-listItem.append(listSpan);
-// listSpan.textContent = "x";
-listSpan.classList.add("close");
+playerSelect.addEventListener("click", function(){
+    
+    if(dreamTeamUnique.length < 5){
+    dreamTeam.push(playerName.textContent)
+    dreamTeamUnique = [...new Set(dreamTeam)];
+  console.log(dreamTeamUnique)
+    }
+
+
+    clearAll();
+    makeDreamTeamList();
+    closeAction();
+    
+})
+
+//function to make list based on dreamTeamUnique array
+
+function makeDreamTeamList(){
+    for (i = 0; i < dreamTeamUnique.length; ++i) {
+        var listItem = document.createElement("li");
+        var listSpan = document.createElement("span")
+        teamList.appendChild(listItem);
+        listItem.classList.add("teamLi")
+        listItem.textContent = dreamTeamUnique[i];
+        listItem.append(listSpan);
+        // listSpan.textContent = "x";
+        listSpan.setAttribute('id', dreamTeamUnique[i]);
+
+        listSpan.classList.add("close");
+    }
+    dreamTeam = dreamTeamUnique;
+    closeAction();
+
+}
+
+//function to add close button behavior
+
+function closeAction(){
 var closebtns = document.getElementsByClassName("close");
-var i;
 for (i = 0; i < closebtns.length; i++) {
+    closebtns[i].addEventListener("click", function() { 
+        dreamTeamUnique = dreamTeamUnique.filter(function (trim) {
+            return trim !== event.target.id;
+        });
+        dreamTeam = dreamTeamUnique;
+        console.log(dreamTeamUnique);
+        clearAll();
+        makeDreamTeamList();
+    });
+}
+}
+
+//function to clear list
+
+function clearAll() {
+    while (teamList.firstChild) {
+    teamList.removeChild(teamList.firstChild);
+    }
+ }
+
+
+
+
+// var listItem = document.createElement("li");
+// var listSpan = document.createElement("span")
+// teamList.appendChild(listItem);
+// listItem.classList.add("teamLi")
+// listItem.textContent = playerName.textContent;
+// listItem.append(listSpan);
+// listSpan.textContent = "x";
+// listSpan.classList.add("close");
+// var closebtns = document.getElementsByClassName("close");
+// var i;
+// for (i = 0; i < closebtns.length; i++) {
 //    var dreamTeamArray = dreamTeam
 //    console.log(dreamTeamArray);
-    closebtns[i].addEventListener("click", function() {
+    // closebtns[i].addEventListener("click", function() {
         // var closebtnsArray = Array.prototype.slice.call(closebtns);
         // var indexNum=closebtnsArray[1];
         // console.log(indexNum);
         // // console.log(dreamTeamArray);
         // dreamTeamArray.splice(indexNum,indexNum);
-      this.parentElement.remove(listItem);
+    //   this.parentElement.remove(listItem);
     //   localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
-    });
-  }
+    // });
+//   }
 
-    }
-    localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
+    // }
+    // localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
 
-} )
+// } )
