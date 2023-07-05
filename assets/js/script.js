@@ -18,6 +18,7 @@ var position = document.getElementById("position");
 var playerName = document.getElementById("playerName");
 var dreamTeamUnique = [...new Set(dreamTeam)];
 
+
 startup();
 
 
@@ -144,6 +145,22 @@ function clearAll() {
     getPreviousTeam();
     makeDreamTeamList();
  }
+
+
+  // Bearer Token you obtained from Twitter
+  const BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAOb4oQEAAAAAFeJwNfyegHdud9d6HBkdqYLxC1o%3Dd6J64EZTux5kbbgVyIaXyWoA6vCxEmSYNKuXpvuzSYd1bzzfuR';
+      
+  // Function to open the tweet composer window
+  function openTweetComposer() {
+    const tweetContentElement = document.getElementById('teamList');
+    const tweetText = encodeURIComponent(tweetContentElement.innerText); // Replace with the names on the team list
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
+
+    window.open(tweetUrl, '_blank', 'width=550,height=420');
+  }
+
+  // Event listener for the tweet button
+  document.getElementById('twitter').addEventListener('click', openTweetComposer);
 
 
 
