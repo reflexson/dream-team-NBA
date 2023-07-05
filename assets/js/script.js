@@ -28,7 +28,7 @@ for (i of players) {
 playersContainer.classList.add("hide");
 // console.log(event.target.id);
 singlePlayerContainer.classList.remove("hide");
-headshot.src =`/assets/imgs/headshots/${event.target.id}.webp`;
+headshot.src =`/assets/imgs/${event.target.id}.webp`;
 
 //api fetch for player info
 
