@@ -19,13 +19,13 @@
     <main>
       <div class="teamContainer">
           <ul class="content" id="teamList">
-            <h2>Your Team</h2>
+            <form>Your Team</form>
             <li>Harvey Dribbleguy</li>
             <li>Lucious Dunkmaster</li>
             <li>Werner Von Blockshot</li>
             <li>some guy</li>
             <li>some guy</li>
-            <button id = "twitterButton">Tweet Your Team!<span id="twitter"></span></button>
+            <button id = "tweetButton">Tweet Your Team!<span id="twitter"></span></button>
           </ul>
          
       </div> 
@@ -117,6 +117,25 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
     crossorigin="anonymous"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+        // Bearer Token you obtained from Twitter
+        const BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAOb4oQEAAAAAFeJwNfyegHdud9d6HBkdqYLxC1o%3Dd6J64EZTux5kbbgVyIaXyWoA6vCxEmSYNKuXpvuzSYd1bzzfuR';
+      
+        // Function to open the tweet composer window
+        function openTweetComposer() {
+          const tweetContentElement = document.getElementById('teamList');
+          const tweetText = encodeURIComponent(tweetContentElement.innerText); // Replace with the names on the team list
+          const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
+      
+          window.open(tweetUrl, '_blank', 'width=550,height=420');
+        }
+      
+        // Event listener for the tweet button
+        document.getElementById('tweetButton').addEventListener('click', openTweetComposer);
+      </script>
+      
+        
    
 
   
