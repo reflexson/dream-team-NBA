@@ -18,6 +18,9 @@ var position = document.getElementById("position");
 var playerName = document.getElementById("playerName");
 var dreamTeamUnique = [...new Set(dreamTeam)];
 
+startup();
+
+
 //event listener for all player buttons
 
 for (i of players) {
@@ -67,7 +70,7 @@ playerSelect.addEventListener("click", function(){
     if(dreamTeamUnique.length < 5){
     dreamTeam.push(playerName.textContent)
     dreamTeamUnique = [...new Set(dreamTeam)];
-  console.log(dreamTeamUnique)
+//   console.log(dreamTeamUnique)
     }
 
 
@@ -93,6 +96,7 @@ function makeDreamTeamList(){
         listSpan.classList.add("close");
     }
     dreamTeam = dreamTeamUnique;
+    localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
     closeAction();
 
 }
@@ -107,7 +111,8 @@ for (i = 0; i < closebtns.length; i++) {
             return trim !== event.target.id;
         });
         dreamTeam = dreamTeamUnique;
-        console.log(dreamTeamUnique);
+        localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
+        // console.log(dreamTeamUnique);
         clearAll();
         makeDreamTeamList();
     });
@@ -121,7 +126,24 @@ function clearAll() {
     teamList.removeChild(teamList.firstChild);
     }
  }
+ 
 
+ // function to grab list from local staorage and populate
+
+ function getPreviousTeam(){
+    pastTeam = JSON.parse(localStorage.getItem("userTeam"));
+    dreamTeam = pastTeam;
+    dreamTeamUnique = [...new Set(dreamTeam)];
+
+
+ }
+
+ //startup function
+
+ function startup(){
+    getPreviousTeam();
+    makeDreamTeamList();
+ }
 
 
 
