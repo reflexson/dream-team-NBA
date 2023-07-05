@@ -20,13 +20,15 @@
       <div class="teamContainer">
           <ul class="content" id="teamList">
             <h2>Your Team</h2>
-            <li>Harvey Dribbleguy</li>
+            <!-- <li>Harvey Dribbleguy</li>
             <li>Lucious Dunkmaster</li>
             <li>Werner Von Blockshot</li>
             <li>some guy</li>
-            <li>some guy</li>
-            <p>Tweet Your Team! <span id="twitter"></span></p>
+            <li>some guy</li> -->
+            
           </ul>
+          <button id="twitter">Tweet Your Team!</button>
+        
          
       </div> 
       <div class = "allPlayersContainer">
@@ -74,7 +76,7 @@
          </div>
       </div>
       <div id="singlePlayerContainer" class="hide">
-        <h4 id="playerName">Steph Curry</h4>
+        <h4 id="playerName"></h4>
         <div id="indStatsContainer">
             <div id="indPlayerHS">
               <img id="indHS"src="./assets/imgs/Headshots/152.webp" alt="">
@@ -82,19 +84,19 @@
             <div id="indStats">
               <div id="statsLeft">
               <ul>
-                <li>Career Ponts: <span id="careerPoints"></span></li>
-                <li>Carrer Assists:<span id="careerAssists"></span></li>
-                <li>Career Rebounds:<span id="careerRebounds"></span></li>
-                <li>Team:<span id="team"></span></li>
+                <li>Career Ponts: <span class="stats" id="careerPoints"></span></li>
+                <li>Carrer Assists:<span class="stats"id="careerAssists"></span></li>
+                <li>Career Rebounds:<span class="stats"id="careerRebounds"></span></li>
+                <li>Team:<span class="stats"id="team"></span></li>
               </ul>
-              <button id="playerSelect"class="statsButton">Select Player</button>
+              <button id="playerSelect" class="statsButton">Select Player</button>
             </div>
             <div id="statsRight">
               <ul>
-                <li>Height:<span id="height"></span></li>
-                <li>Weight:<span id="weight"></span></li>
-                <li>Age:<span id="age"></span></li>
-                <li>Position:<span id="position"></span></li>
+                <li>Height:<span class="stats"id="height"></span></li>
+                <li>Weight:<span class="stats"id="weight"></span></li>
+                <li>Age:<span class="stats" id="age"></span></li>
+                <li>Position:<span class="stats"id="position"></span></li>
               </ul>
               <button id="back" class="statsButton">Back</button>
             </div>
