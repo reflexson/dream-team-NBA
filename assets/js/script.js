@@ -8,7 +8,7 @@ const careerRebounds = getElementsByClassName('careerRebounds')
 const team = getElementsByClassName('team')
 const height = getElementsByClassName('height')
 const weight = getElementsByClassName('weight')
-const age = getElementsByClassName('rebound')
+const age = getElementsByClassName('age')
 const jerseyNumber = getElementsByClassName('jerseyNumber')
 const position = getElementsByClassName('position')
 
@@ -43,6 +43,7 @@ function addPlayerToTeam(data) {
   var listItem = document.createElement("li")
   teamList.appendChild(listItem)
   listItem.textContent(firstName, lastName)
+  return data
 
 }
 
@@ -52,7 +53,7 @@ function getPlayerById(data){
 	return data
 }
 
-var url = 'https://nba-player-individual-stats.p.rapidapi.com/players/%7Bid%7D';
+var url = 'https://nba-player-individual-stats.p.rapidapi.com/players/'+getPlayerById;
 const options = {
 	method: 'GET',
 	headers: {
