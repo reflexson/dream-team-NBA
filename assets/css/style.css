@@ -6,12 +6,15 @@
 
 body{
   color: white;
-  background-image:url("/assets/imgs/Hardwood.jpeg");
+  /* background-image:url("/assets/imgs/Hardwood.jpeg"); */
   background-position: center top;
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-color: black;
   font-family: 'Caprasimo', cursive;
+}
+.stats{
+  color: #a3c6fa;
 }
 
 
@@ -44,7 +47,7 @@ main{
   margin: auto;
   align-items: center;
   width: 40%;
-  background: url("/assets/imgs/Logos/_nba_all-star_game_logo.png");
+  /* background: url("/assets/imgs/Logos/_nba_all-star_game_logo.png"); */
   background-size:contain;
   background-repeat: no-repeat;
   border-radius: 15px;
@@ -60,7 +63,7 @@ ul{
 #teamList{
   width: 100%;
   font-size: 1.7vw;
-  background: rgba(245, 217, 191, 0.85);
+  /* background: rgba(245, 217, 191, 0.85); */
   color: black;
   text-align: center;
   border-radius: 15px;
@@ -102,20 +105,17 @@ ul{
   justify-content: center;
 }
 
-h3{
- color: white;
-  font-size: 1.8vw;
-  margin-left: 10px;
-}
+
 
 button{
   font-family: 'Caprasimo', cursive;
   border-radius: 10px;
   font-size: 1.6vw;
+  border: none;
   width: 100%;
   padding-left: 8%;
   margin-top: 5px;
-  box-shadow:2px 3px 3px #a8a7a7 ;
+  box-shadow:2px 3px 3px #000000 ;
   align-items: center;
   display: flex;
   transition: .2s;
@@ -148,9 +148,9 @@ button:hover{
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 90%;
   margin-right: 15%;
-  margin-left: 15%;
+  margin-left: 5%;
   /* background: rgba(218, 218, 218, 0.5); */
   color: black;
   text-align: center;
@@ -175,7 +175,7 @@ width: 40%;
 
 #indHS{
   width: 75%;
-  margin-left: 20%;
+  margin-left: 0%;
 }
 
 #indStats{
@@ -187,23 +187,30 @@ width: 40%;
 }
 #statsLeft{
   text-align: center;
-  margin-left: 5%;
+  margin-left: 0%;
   font-size: 1.8vw;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 3px 3px 5px black;
 }
 
 #statsRight{
   margin-left: 10%;
   font-size: 1.8vw;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 3px 3px 5px black;
 }
 
 .statsButton{
-margin: auto;
-  text-align: center;
+/* margin: auto !important; */
+text-align: center !important;
+display: inline-block;
+padding-left: 0%;
 }
 
-
+h3{
+  color: white;
+   font-size: 1.8vw;
+   margin-left: 10px;
+   text-shadow: 3px 3px 5px black;
+ }
 
 
 h4{
@@ -243,7 +250,39 @@ margin-top: 10px;
   margin-top: 25px;
   }
 
+  .teamLi{
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+  border-radius: 10px;
+
+  }
+
+  .teamLi:hover{
+  background-color: #eee;
+
+  }
+
+  .close {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    padding: 12px;
+    transform: translate(0%, -50%);
+  }
+
+  .close:hover {background: #bbb;}
+
+
+
 
   .hide{
-    display: none;
+    display: none !important;
     }
