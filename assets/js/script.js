@@ -36,7 +36,7 @@ const playersContainer = document.querySelector(".allPlayersContainer");
 const backButton = document.getElementById('back');
 const singlePlayerContainer = document.getElementById("singlePlayerContainer")
 
-playerSelect.addEventListener('click', addPlayerToTeam);
+//playerSelect.addEventListener('click', addPlayerToTeam);
 
 
 function addPlayerToTeam(data) {
@@ -46,25 +46,13 @@ function addPlayerToTeam(data) {
 
 }
 
-for (i of players) {
-    i.addEventListener('click', function() {
-playersContainer.classList.add("hide");
-console.log(event.target.id);
-singlePlayerContainer.classList.remove("hide");
-
-})}
-
-backButton.addEventListener('click', function(){
-    singlePlayerContainer.classList.add("hide");
-    playersContainer.classList.remove("hide");
-})
 
 
 function getPlayerById(data){
 	return data
 }
 
-var url = 'https://nba-player-individual-stats.p.rapidapi.com/players/'+getPlayerById;
+var url = 'https://nba-player-individual-stats.p.rapidapi.com/players/%7Bid%7D';
 const options = {
 	method: 'GET',
 	headers: {
@@ -85,7 +73,7 @@ function showPlayerData(data) {
   for (i of players) {
       i.addEventListener('click',  getPlayerById()) 
       playersContainer.classList.add("hide");
-      console.log(event.target.id);
+      console.log(e.target.id);
       singlePlayerContainer.classList.remove("hide");
       
   // this function needs to hide the allPlayersContainer
@@ -137,7 +125,7 @@ playerSelect.addEventListener('click', addPlayerToTeam);
 for (i of players) {
     i.addEventListener('click', function() {
 playersContainer.classList.add("hide");
-console.log(event.target.id);
+console.log(e.target.id);
 singlePlayerContainer.classList.remove("hide");
 
 })}
