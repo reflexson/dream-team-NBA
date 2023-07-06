@@ -17,10 +17,9 @@ var age = document.getElementById("age");
 var position = document.getElementById("position");
 var playerName = document.getElementById("playerName");
 var dreamTeamUnique = [...new Set(dreamTeam)];
-
+var teamContainer = document.querySelector(".teamContainer");
 
 startup();
-
 
 //event listener for all player buttons
 
@@ -71,8 +70,12 @@ playerSelect.addEventListener("click", function(){
     if(dreamTeamUnique.length < 5){
     dreamTeam.push(playerName.textContent)
     dreamTeamUnique = [...new Set(dreamTeam)];
-//   console.log(dreamTeamUnique)
+    if (dreamTeam.length == 0) {
+      teamContainer.classList.add("hide")
+    }else if(dreamTeam.length != 0) {
+      teamContainer.classList.remove("hide")
     }
+  }
 
 
     clearAll();
@@ -96,6 +99,11 @@ function makeDreamTeamList(){
 
         listSpan.classList.add("close");
     }
+    if (dreamTeam.length == 0) {
+      teamContainer.classList.add("hide")
+    }else if(dreamTeam.length != 0) {
+      teamContainer.classList.remove("hide")
+    }
     dreamTeam = dreamTeamUnique;
     localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
     closeAction();
@@ -114,6 +122,11 @@ for (i = 0; i < closebtns.length; i++) {
         dreamTeam = dreamTeamUnique;
         localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
         // console.log(dreamTeamUnique);
+        if (dreamTeam.length == 0) {
+          teamContainer.classList.add("hide")
+        }else if(dreamTeam.length != 0) {
+          teamContainer.classList.remove("hide")
+        }
         clearAll();
         makeDreamTeamList();
     });
@@ -125,6 +138,11 @@ for (i = 0; i < closebtns.length; i++) {
 function clearAll() {
     while (teamList.firstChild) {
     teamList.removeChild(teamList.firstChild);
+    }
+    if (dreamTeam.length == 0) {
+      teamContainer.classList.add("hide")
+    }else if(dreamTeam.length != 0) {
+      teamContainer.classList.remove("hide")
     }
  }
  
@@ -144,6 +162,11 @@ function clearAll() {
  function startup(){
     getPreviousTeam();
     makeDreamTeamList();
+    if (dreamTeam.length == 0) {
+      teamContainer.classList.add("hide")
+    }else if(dreamTeam.length != 0) {
+      teamContainer.classList.remove("hide")
+    }
  }
 
 

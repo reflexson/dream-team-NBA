@@ -29,7 +29,9 @@ h1{
 }
 
 h2{
-  font-size: 2vw;
+  font-size: 3vw;
+  color: white;
+  text-shadow: 3px 3px 5px black;
 }
 
 main{
@@ -244,7 +246,10 @@ margin-top: 10px;
 
 }
 
-
+#twitter {
+  background-color: rgb(96, 185, 240);
+  color: white;
+}
 
 #bottomLogo{
   width: 40%;
@@ -263,6 +268,7 @@ margin-top: 10px;
   display: block;
   position: relative;
   border-radius: 10px;
+  box-shadow:2px 3px 3px #000000;
 
   }
 
@@ -280,7 +286,8 @@ margin-top: 10px;
     transform: translate(0%, -50%);
   }
 
-  .close:hover {background: #bbb;}
+  /*.close:hover {
+    background: #bbb;}*/
 
 
 
