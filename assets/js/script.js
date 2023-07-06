@@ -18,15 +18,18 @@ var position = document.getElementById("position");
 var playerName = document.getElementById("playerName");
 var dreamTeamUnique = [...new Set(dreamTeam)];
 var teamContainer = document.querySelector(".teamContainer");
+var yourTeam = document.querySelector(".your-team");
 
 startup();
 
 //event listener for all player buttons
 
-for (i of players) {
-    i.addEventListener('click', function() {
+
+for ( i of players) {
+  console.log("I: ", i)
+    i.addEventListener('click', function(event) {
 playersContainer.classList.add("hide");
-// console.log(event.target.id);
+console.log(event.target.id);
 singlePlayerContainer.classList.remove("hide");
 headshot.src =`./assets/imgs/${event.target.id}.webp`;
 
@@ -70,10 +73,10 @@ playerSelect.addEventListener("click", function(){
     if(dreamTeamUnique.length < 5){
     dreamTeam.push(playerName.textContent)
     dreamTeamUnique = [...new Set(dreamTeam)];
-    if (dreamTeam.length == 0) {
-      teamContainer.classList.add("hide")
-    }else if(dreamTeam.length != 0) {
-      teamContainer.classList.remove("hide")
+    if (dreamTeamUnique.length == 0) {
+      yourTeam.classList.add("hide")
+    } else {
+      yourTeam.classList.remove("hide")
     }
   }
 
@@ -99,11 +102,6 @@ function makeDreamTeamList(){
 
         listSpan.classList.add("close");
     }
-    if (dreamTeam.length == 0) {
-      teamContainer.classList.add("hide")
-    }else if(dreamTeam.length != 0) {
-      teamContainer.classList.remove("hide")
-    }
     dreamTeam = dreamTeamUnique;
     localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
     closeAction();
@@ -115,17 +113,16 @@ function makeDreamTeamList(){
 function closeAction(){
 var closebtns = document.getElementsByClassName("close");
 for (i = 0; i < closebtns.length; i++) {
-    closebtns[i].addEventListener("click", function() { 
+    closebtns[i].addEventListener("click", function(event) { 
         dreamTeamUnique = dreamTeamUnique.filter(function (trim) {
             return trim !== event.target.id;
         });
         dreamTeam = dreamTeamUnique;
         localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
-        // console.log(dreamTeamUnique);
-        if (dreamTeam.length == 0) {
-          teamContainer.classList.add("hide")
-        }else if(dreamTeam.length != 0) {
-          teamContainer.classList.remove("hide")
+        if (dreamTeamUnique.length == 0) {
+          yourTeam.classList.add("hide")
+        } else {
+          yourTeam.classList.remove("hide")
         }
         clearAll();
         makeDreamTeamList();
@@ -139,11 +136,7 @@ function clearAll() {
     while (teamList.firstChild) {
     teamList.removeChild(teamList.firstChild);
     }
-    if (dreamTeam.length == 0) {
-      teamContainer.classList.add("hide")
-    }else if(dreamTeam.length != 0) {
-      teamContainer.classList.remove("hide")
-    }
+
  }
  
 
@@ -162,10 +155,10 @@ function clearAll() {
  function startup(){
     getPreviousTeam();
     makeDreamTeamList();
-    if (dreamTeam.length == 0) {
-      teamContainer.classList.add("hide")
-    }else if(dreamTeam.length != 0) {
-      teamContainer.classList.remove("hide")
+    if (dreamTeamUnique.length == 0) {
+      yourTeam.classList.add("hide")
+    } else {
+      yourTeam.classList.remove("hide")
     }
  }
 
@@ -188,34 +181,3 @@ function clearAll() {
 
   // Event listener for the tweet button
   document.getElementById('twitter').addEventListener('click', openTweetComposer);
-
-
-
-// var listItem = document.createElement("li");
-// var listSpan = document.createElement("span")
-// teamList.appendChild(listItem);
-// listItem.classList.add("teamLi")
-// listItem.textContent = playerName.textContent;
-// listItem.append(listSpan);
-// listSpan.textContent = "x";
-// listSpan.classList.add("close");
-// var closebtns = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < closebtns.length; i++) {
-//    var dreamTeamArray = dreamTeam
-//    console.log(dreamTeamArray);
-    // closebtns[i].addEventListener("click", function() {
-        // var closebtnsArray = Array.prototype.slice.call(closebtns);
-        // var indexNum=closebtnsArray[1];
-        // console.log(indexNum);
-        // // console.log(dreamTeamArray);
-        // dreamTeamArray.splice(indexNum,indexNum);
-    //   this.parentElement.remove(listItem);
-    //   localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
-    // });
-//   }
-
-    // }
-    // localStorage.setItem("userTeam", JSON.stringify(dreamTeam));
-
-// } )
