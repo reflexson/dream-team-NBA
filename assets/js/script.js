@@ -129,7 +129,7 @@ function clearAll() {
  }
  
 
- // function to grab list from local staorage and populate
+ // function to grab list from local storage and populate
 
  function getPreviousTeam(){
     pastTeam = JSON.parse(localStorage.getItem("userTeam"));
@@ -159,6 +159,8 @@ function clearAll() {
     const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
 
     window.open(tweetUrl, '_blank', 'width=550,height=420');
+    let mySound = new Audio('./assets/audio/ball.mp3')
+    mySound.play()
   }
 
   // Event listener for the tweet button
