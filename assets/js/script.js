@@ -153,7 +153,9 @@ function clearAll() {
   // Function to open the tweet composer window
   function openTweetComposer() {
     const tweetContentElement = document.getElementById('teamList');
-    const tweetText = encodeURIComponent(tweetContentElement.innerText); // Replace with the names on the team list
+    const urlTryIt = "https://reflexson.github.io/dream-team-NBA/";
+    const tweetTitle = "Check out my NBA Dream Team!";
+    const tweetText = encodeURIComponent(tweetTitle + "\n" + "\n" + tweetContentElement.innerText + "\n" + "\n" + "Try it for yourself!" + "\n" + urlTryIt ); // Replace with the names on the team list
     const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
 
     window.open(tweetUrl, '_blank', 'width=550,height=420');
